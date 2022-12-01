@@ -1,5 +1,5 @@
 
-source <(curl -s https://raw.githubusercontent.com/sincanyazilim/deneme2/main/minima-1)
+
 
 sudo curl -fsSL https://get.docker.com/ -o get-docker.sh
 sudo chmod +x ./get-docker.sh && ./get-docker.sh
