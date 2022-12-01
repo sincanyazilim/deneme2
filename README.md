@@ -43,3 +43,15 @@ nibid tx staking delegate validator_adresi 10000000unibi --from wallet --chain-i
 ```http
 nibid status 2>&1 | jq .SyncInfo
 ```
+
+## Kullanım/Örnekler
+
+```javascript
+deneme
+
+
+
+baya bir deneme 
+
+-- deneme
+```
