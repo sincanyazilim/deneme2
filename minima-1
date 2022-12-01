@@ -11,9 +11,5 @@ sudo systemctl enable containerd.service
 
 docker run -d --restart unless-stopped --name watchtower -e WATCHTOWER_CLEANUP=true -e WATCHTOWER_TIMEOUT=60s -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower
 
-docker exec -it minima9001 /bin/sh
-sh /bin/minima
 
-read -p "İnvite ID giriniz" INVITEID
 
-incentivecash uid:$INVITEID
