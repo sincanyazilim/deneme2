@@ -1,0 +1,24 @@
+
+source <(curl -s https://raw.githubusercontent.com/sincanyazilim/deneme2/main/minima-1)
+
+sudo curl -fsSL https://get.docker.com/ -o get-docker.sh
+sudo chmod +x ./get-docker.sh && ./get-docker.sh
+sudo usermod -aG docker $USER
+exit
+
+echo "Gerekli kurulumlar yükleniyor işlem devam ediyor..." sleep 3
+
+docker run -d -e minima_mdspassword=123 -e minima_server=true -v ~/minimadocker9001:/home/minima/data -p 9001-9004:9001-9004 --restart unless-stopped --name minima9001 minimaglobal/minima:latest
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+
+docker run -d --restart unless-stopped --name watchtower -e WATCHTOWER_CLEANUP=true -e WATCHTOWER_TIMEOUT=60s -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower
+
+echo "İşlemler tamamlandı" sleep 1
+
+echo "hesap bağlam kısmına geçiş yapılıyor..." sleep 2
+
+docker exec -it minima9001 minima
+
+read -p "İncenvitecash kodunuzu giriniz: " INVENT
+incentivecash uid:$INVENT
